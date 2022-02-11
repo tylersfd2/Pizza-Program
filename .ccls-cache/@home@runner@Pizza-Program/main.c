@@ -68,30 +68,32 @@ int main(void) {
 
   
       if (order_choice == 1) { // if type1 is selected, choose size of pizza
-        printf("You selected %i, is this correct? (1-yes, 2-no)\n <:", order_choice);
-        if (order_choice == 1) {
+      
           pizza_small = true;
           confirm_order = true;
-        }
-        else if (order_choice == 2) {
-          printf("You selected %i, is this correct? (1-yes, 2-no)\n <:", order_choice);
-          if (order_choice == 1) {
-            pizza_medium = true;
-            confirm_order = true;
         } else{
-            confirm_order = false;
+          confirm_order = false;
         }
+        if (order_choice == 2) {
+            printf("You selected %i, is this correct? (1-yes, 2-no)\n <:", order_choice);
+            scanf("%i", &order_choice);
+            if (order_choice == 1) {
+              pizza_medium = true;
+              confirm_order = true;
+          } else{
+              confirm_order = false;
+          }
           
         }
-        else if (order_choice == 3) {
-          printf("You selected %i, is this correct? (1-yes, 2-no)\n <:", order_choice);
-          if (order_choice == 1) {
-            pizza_large = true;
-            confirm_order = true;
-          }
-          else {
-            confirm_order = false;
-          }
+        if (order_choice == 3) {
+            printf("You selected %i, is this correct? (1-yes, 2-no)\n <:", order_choice);
+            if (order_choice == 1) {
+              pizza_large = true;
+              confirm_order = true;
+            }
+            else {
+              confirm_order = false;
+            }
         }
       }
     
@@ -101,7 +103,7 @@ int main(void) {
       printf("toppings:\n 1.Chicken - $2.00\n 2. Caviar - $20.00 \n3. 20k Golden Flakes - $50.00 \n <:");
       scanf("%i", &order_choice);
     } else {
-      continue;
+      confirm_order = false;
     }
       if(order_choice == 1) {
       toppings_cost = 2.0f;
@@ -118,10 +120,10 @@ int main(void) {
     if (pizza_small == true) {
       order_total = (pizza_cost * pizza_small_cost);
       }
-    else if (pizza_medium == true ) {
+    if (pizza_medium == true ) {
       order_total = (pizza_cost * pizza_medium_cost);
       }  
-    else if (pizza_large == true) {
+    if (pizza_large == true) {
       order_total = (pizza_cost * pizza_large_cost);
       } 
     printf("\n Would you like to add a tip? 1-yes, 2-no\n <:");
@@ -175,13 +177,13 @@ int main(void) {
       printf("WILL BE READY IN ABOUT 30 minutes"); 
         }
       } else if (order_choice == 2) {
-        printf("Restarting order...");
+        printf("Restarting order...\n");
         confirm_order = false;
       }
-
+return 0; 
     }
-return 0;
-  }
+
+  
   
 
 
